@@ -91,7 +91,7 @@ if __name__ == '__main__':
     seqlist.append_last(6)
     seqlist.append_last(3)
     seqlist.insert(1, 11)
-    #     seqlist.remove(3)
+    seqlist.remove(3)
 
     # print("---------")
     # seqlist.print_list()
