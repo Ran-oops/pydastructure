@@ -1,5 +1,6 @@
 #!/usr/bin/python
-# -*- coding: <encoding name> -*-
+# -*- coding: utf-8 -*-
+
 
 class SeqList(object):
     def __init__(self, max=10):
@@ -95,9 +96,9 @@ if __name__ == '__main__':
 
     # print("---------")
     # seqlist.print_list()
-    # print("---------")
-    # for x in seqlist:
-    #     print(x)
+    print("---------")
+    for x in seqlist:
+        print(x)
     print("---------")
     seqlist.destroy()
     print("==========")
