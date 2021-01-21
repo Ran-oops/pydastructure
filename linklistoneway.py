@@ -18,12 +18,15 @@ class SingleNode(object):
         # item存放数据元素
         self.item = item
         # next是下一个节点的标识
+        # next不为None的时候 等于谁(结点)就表示指向哪个结点
         self.next = None
 
 
 class SingleLinkList(object):
     """单链表"""
     def __init__(self):
+        # 这个(属性)变量指向头结点, 现在为None表示没有头结点,是空链表
+        # 有了这个属性才能把头结点保存下来 然后把之后的结点都串起来
         self.__head = None
 
     def is_empty(self):
@@ -38,7 +41,7 @@ class SingleLinkList(object):
         # 尾节点指向None，当未到达尾部时
         while cur != None:
             count += 1
-            # 将cur后移一个节点
+            # 将cur后移一个节点, 当前结点的下一结点
             cur = cur.next
         return count
 
@@ -48,7 +51,6 @@ class SingleLinkList(object):
         while cur != None:
             print(cur.item)
             cur = cur.next
-        print("")
 
     def add(self, item):
         """头部添加元素"""
@@ -57,7 +59,7 @@ class SingleLinkList(object):
         # 将新节点的链接域next指向头节点，即_head指向的位置
         print("node.itemmm", node.item)
         print("node.nexttttt", node.next)
-        print("self.__head", self.__head)
+        print("self.__head", self.__head.next.item)
         node.next = self.__head
         # 将链表的头_head指向新节点
         self.__head = node
@@ -96,6 +98,7 @@ class SingleLinkList(object):
                 count += 1
                 pre = pre.next
             # 先将新节点node的next指向插入位置的节点
+            # 当循环退出后,pre指向pos-1的位置
             node.next = pre.next
             # 将插入位置的前一个节点的next指向新节点
             pre.next = node
@@ -131,16 +134,20 @@ class SingleLinkList(object):
 
 if __name__ == "__main__":
     ll = SingleLinkList()
-    ll.add(1)
-    print("seppppppppppppppppppp")
-    ll.add(2)
+    ll.append(2)
     ll.append(3)
-    ll.insert(2, 4)
-    print("length:",ll.length())
+    ll.append(4)
+    ll.add(1)
     ll.travel()
-    print(ll.search(3))
-    print(ll.search(5))
-    ll.remove(1)
-    print("length:",ll.length())
-    ll.travel()
+    # print("seppppppppppppppppppp")
+    # ll.add(2)
+    # ll.append(3)
+    # ll.insert(2, 4)
+    # print("length:",ll.length())
+    # ll.travel()
+    # print(ll.search(3))
+    # print(ll.search(5))
+    # ll.remove(1)
+    # print("length:",ll.length())
+    # ll.travel()
 
