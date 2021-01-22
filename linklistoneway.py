@@ -49,7 +49,7 @@ class SingleLinkList(object):
         """遍历链表"""
         cur = self.__head
         while cur != None:
-            print(cur.item)
+            print(cur.item, end=" ")
             cur = cur.next
 
     def add(self, item):
@@ -57,13 +57,9 @@ class SingleLinkList(object):
         # 先创建一个保存item值的节点
         node = SingleNode(item)
         # 将新节点的链接域next指向头节点，即_head指向的位置
-        print("node.itemmm", node.item)
-        print("node.nexttttt", node.next)
-        print("self.__head", self.__head.next.item)
         node.next = self.__head
         # 将链表的头_head指向新节点
         self.__head = node
-        print("self.__head ater====", self.__head)
 
     def append(self, item):
         """尾部添加元素"""
@@ -74,7 +70,6 @@ class SingleLinkList(object):
         # 若不为空，则找到尾部，将尾节点的next指向新节点
         else:
             cur = self.__head             # 获取现在最后的那个节点
-            print("cur=====", cur)
             while cur.next != None:       # 若不为空,则找到尾部,将尾结点的next指向新节点
                 cur = cur.next
             cur.next = node
@@ -139,15 +134,15 @@ if __name__ == "__main__":
     ll.append(4)
     ll.add(1)
     ll.travel()
-    # print("seppppppppppppppppppp")
-    # ll.add(2)
-    # ll.append(3)
-    # ll.insert(2, 4)
-    # print("length:",ll.length())
-    # ll.travel()
-    # print(ll.search(3))
-    # print(ll.search(5))
-    # ll.remove(1)
-    # print("length:",ll.length())
-    # ll.travel()
+    print("seppppppppppppppppppp")
+    ll.add(2)
+    ll.append(3)
+    ll.insert(2, 4)
+    print("length:",ll.length())
+    ll.travel()
+    print(ll.search(3))
+    print(ll.search(5))
+    ll.remove(1)
+    print("length:",ll.length())
+    ll.travel()
 
