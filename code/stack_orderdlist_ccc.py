@@ -36,7 +36,7 @@ if __name__=="__main__":
     myStack.push(5)
     myStack.push(7)
     myStack.push(8)
-    # print(myStack.size())
+    print(myStack.size())
     print(myStack.pop())
     print(myStack.pop())
     print(myStack.pop())
