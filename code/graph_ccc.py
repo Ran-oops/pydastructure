@@ -1,4 +1,7 @@
 # coding: utf-8
+c = list()
+from collections.abc import *
+
 
 class Vertex:
     def __init__(self, key):
@@ -20,9 +23,18 @@ class Vertex:
     def getWeight(self, nbr):
         return self.connectedTo[nbr]
 
+
+# v1 = Vertex("good")
+# v2 = Vertex("morning")
+# v1.addNeighbor(v2)
+# print(v2.getConnections())
+# print(v1.getWeight(v2))
+
 class Graph:
     def __init__(self):
+        # 顶点形成的集合
         self.vertList = {}
+        # 顶点的数目
         self.numVertices = 0
 
     def addVertex(self, key):
@@ -36,6 +48,7 @@ class Graph:
             return self.vertList[n]
         else:
             return None
+
     def __contains__(self, n):
         return n in self.vertList
 
@@ -53,16 +66,21 @@ class Graph:
         return iter(self.vertList.values())
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+g = Graph()
+# print(isinstance(g, Iterator))
+# print(isinstance(g, Iterable))
+for i in range(6):
+    g.addVertex(i)
+print(g.vertList)
+g.addEdge(0,1,5)
+g.addEdge(1,2,4)
+g.addEdge(2,3,9)
+g.addEdge(3,4,7)
+g.addEdge(4,0,1)
+g.addEdge(0,5,2)
+g.addEdge(5,4,8)
+g.addEdge(3,5,3)
+g.addEdge(5,2,1)
+for v in g:
+    for w in v.getConnections():
+        print("(%s, %s)" % (v.getId(), w.getId()))
