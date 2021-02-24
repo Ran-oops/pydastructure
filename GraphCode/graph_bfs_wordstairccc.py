@@ -48,6 +48,7 @@ def bfs(g, start):
     # print("ddddd",start.getDistance())
     vertQueue = queue_orderdlist_ccc.Queue()
     vertQueue.enqueue(start)
+    # 下面的while循环所有的顶点都放进去过一次
     while vertQueue.size() > 0:
         currentVert = vertQueue.dequeue()
         for nbr in currentVert.getConnections():

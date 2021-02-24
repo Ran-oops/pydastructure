@@ -1,6 +1,6 @@
 # coding: utf-8
 
-fron pythonds.graphs import PriorityQueue, Graph, Vertex
+# fron pythonds.graphs import PriorityQueue, Graph, Vertex
 import sys
 
 def prim(G, start):
