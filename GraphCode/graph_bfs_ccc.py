@@ -8,7 +8,8 @@ import graph_ccc
 def traverse(y):
     x = y
     # 当前驱不为None
-    while x.getPred() != None:
+    print(x.getPred())
+    while x.getPred() is not None:
         # 打印当前节点的id,就是这个单词
         print(x.getId())
         x = x.getPred()
@@ -41,8 +42,10 @@ def buildGraph(wordFile):
 
 
 def bfs(g, start):
+    # print("kkkkkkkk", start)
     start.setDistance(0)
     start.setPred(None)
+    # print("ddddd",start.getDistance())
     vertQueue = queue_orderdlist_ccc.Queue()
     vertQueue.enqueue(start)
     while vertQueue.size() > 0:
@@ -52,6 +55,7 @@ def bfs(g, start):
             if nbr.getColor() == 'white':
                 nbr.setColor('gray')
                 nbr.setDistance(currentVert.getDistance() + 1)
+                nbr.setPred(currentVert)
                 vertQueue.enqueue(nbr)
         currentVert.setColor('black')
 
