@@ -8,10 +8,11 @@ class Vertex:
     def __init__(self, key):
         self.id = key
         self.connectedTo = {}
-        # 宽度优先遍历增加以下三个属性
+        # 宽度优先遍历增加以下三个属性START----
         self.color = 'white'
         self.dist = sys.maxsize
         self.pred = None
+        # 宽度优先遍历增加以下三个属性END----
 
     def addNeighbor(self, nbr, weight=0):
         self.connectedTo[nbr] = weight
