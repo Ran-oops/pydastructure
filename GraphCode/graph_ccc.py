@@ -13,6 +13,10 @@ class Vertex:
         self.dist = sys.maxsize
         self.pred = None
         # 宽度优先遍历增加以下三个属性END----
+        # 深度优先遍历增加两个属性start------------
+        self.disc = 0
+        self.fin = 0
+        # 深度优先遍历增加两个属性end---------------
 
     def addNeighbor(self, nbr, weight=0):
         self.connectedTo[nbr] = weight
@@ -38,6 +42,20 @@ class Vertex:
 
     # 宽度优先增加方法end----------------
 
+    # 深度优先增加方法 start---------------
+    def setDiscovery(self, dtime):
+        self.disc = dtime
+
+    def setFinish(self, ftime):
+        self.fin = ftime
+
+    def getFinish(self):
+        return self.fin
+
+    def getDiscovery(self):
+        return self.disc
+
+    # 深度优先增加方法 end---------------
     # def __str__(self):
     def __repr__(self):
         return str(self.id) + 'connectedTo: ' + str([x.id for x in self.connectedTo])
