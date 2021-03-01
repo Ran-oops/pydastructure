@@ -1,6 +1,6 @@
 # coding: utf-8
 # from . import graph_ccc
-from GraphCode.graph_ccc import *
+from code_.GraphCode.graph_ccc import *
 
 
 def genLegalMoves(x, y, bdsize):
