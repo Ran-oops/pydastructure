@@ -44,11 +44,15 @@ def preorder(tree):
 
 
 def postorder(tree):
+    num = 0
     if tree is not None:
         preorder(tree.getLeftChild())
+        num += 1
         preorder(tree.getRightChild())
+        num += 1
         print(tree.getRootval())
-
+        num += 1
+    return num
 
 def midorder(tree):
     if tree is not None:
@@ -63,6 +67,7 @@ if __name__ == '__main__':
     r.insertLeft("b")
     r.insertRight("c")
     r.getRightChild().setRootVal("hello")
-    print(r.getRightChild().key)
-    print(r.getLeftChild().key)
-    print(r.getLeftChild().getLeftChild().key)
+    # print(r.getRightChild().key)
+    # print(r.getLeftChild().key)
+    # print(r.getLeftChild().getLeftChild().key)
+    print(postorder(r))

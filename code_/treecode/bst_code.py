@@ -23,6 +23,8 @@ class BinarySearchTree:
     def __iter__(self):
         return self.root.__iter__()
 
+    def height(self):
+        return self.root.height()
 
     def put(self, key, val):
         if self.root:
@@ -162,6 +164,19 @@ class TreeNode:
         self.leftchild = left
         self.rightchild = right
         self.parent = parent
+        self.balanceFactor = 0
+
+    def height(self):
+        height_l = 0
+        height_r = 0
+        if self.isLeaf():
+            return 0
+        if self.leftchild:
+            height_l = self.leftchild.height()
+        if self.rightchild:
+            height_r = self.rightchild.height()
+        return max(height_r, height_l) + 1
+
 
     def hasLeftChild(self):
         return self.leftchild
@@ -263,39 +278,42 @@ class TreeNode:
                     self.parent.rightchild = self.rightchild
             self.rightchild.parent = self.parent
 
-mytree = BinarySearchTree()
+if __name__ == '__main__':
 
-# mytree[3] = "red"
-# mytree[3] = "blueeeeeeeeeeeeeeeeee"
-# mytree[4] = "blue"
-# mytree[6]="yellow"
-# mytree[2]="at"
-# print(mytree[3])
-# print(3 in mytree)
-# del mytree[3]
-# print(mytree[2])
-# for key in mytree:
-#     print(key, mytree[key])
+    mytree = BinarySearchTree()
 
-mytree[9] = "three"
-mytree[6] = "two"
-mytree[10] = "four"
+    # mytree[3] = "red"
+    # mytree[3] = "blueeeeeeeeeeeeeeeeee"
+    # mytree[4] = "blue"
+    # mytree[6]="yellow"
+    # mytree[2]="at"
+    # print(mytree[3])
+    # print(3 in mytree)
+    # del mytree[3]
+    # print(mytree[2])
+    # for key in mytree:
+    #     print(key, mytree[key])
 
-mytree[8] = "one"
-mytree[7] = "five"
-mytree[8.2] = "point"
+    mytree[9] = "three"
+    mytree[6] = "two"
+    mytree[10] = "four"
+
+    mytree[8] = "one"
+    mytree[7] = "five"
+    mytree[8.2] = "point"
 
 
-# for key in mytree:
-#     print(key, mytree[key], )
+    # for key in mytree:
+    #     print(key, mytree[key], )
 
-print(mytree.root.key) # 9
-print(mytree.root.leftchild.key) # 6
-print(mytree.root.rightchild.key) # 10
-print(mytree.root.leftchild.rightchild.key)
-print(mytree.root.leftchild.rightchild.leftchild.key)
-print(mytree.root.leftchild.rightchild.rightchild.key)
-# del mytree[8]
+    # print(mytree.root.key) # 9
+    # print(mytree.root.leftchild.key) # 6
+    # print(mytree.root.rightchild.key) # 10
+    # print(mytree.root.leftchild.rightchild.key)
+    # print(mytree.root.leftchild.rightchild.leftchild.key)
+    # print(mytree.root.leftchild.rightchild.rightchild.key)
+    # del mytree[8]
+    print(mytree.height())
 
 
 
