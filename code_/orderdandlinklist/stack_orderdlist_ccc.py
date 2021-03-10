@@ -1,7 +1,13 @@
 # coding: utf-8
+# from pythonds.basic.stack import Stack
 
 
 class Stack(object):
+    """
+    1. 栈顶尾端的实现,push和pop的复杂度为O(1)
+    2. 栈顶首端的实现,push和pop的复杂度为O(n)
+
+    """
     def __init__(self, limit=10):
         self.__items = []
 

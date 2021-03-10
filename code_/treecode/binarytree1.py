@@ -1,5 +1,6 @@
 # coding: utf-8
 
+
 def BinaryTree(r):
     return [r, [], []]
 
@@ -40,10 +41,11 @@ def getLeftChild(root):
 def getRightChild(root):
     return root[2]
 
+
 if __name__ == '__main__':
     r = BinaryTree(3)
-    insertLeft(r,4)
-    insertLeft(r,5)
+    insertLeft(r, 4)
+    insertLeft(r, 5)
     insertRight(r, 6)
     insertRight(r, 7)
     l = getLeftChild(r)

@@ -43,31 +43,30 @@ def preorder(tree):
         preorder(tree.getRightChild())
 
 
-def postorder(tree):
-    num = 0
+def postorder(tree, num):
     if tree is not None:
-        preorder(tree.getLeftChild())
-        num += 1
-        preorder(tree.getRightChild())
-        num += 1
+        postorder(tree.getLeftChild(), num)
+        print("lllnum====", num)
+        postorder(tree.getRightChild(), num)
+        print("rrrrnum====", num)
         print(tree.getRootval())
-        num += 1
-    return num
+
+        return num
 
 def midorder(tree):
     if tree is not None:
-        preorder(tree.getLeftChild())
+        midorder(tree.getLeftChild())
         print(tree.getRootval())
-        preorder(tree.getRightChild())
+        midorder(tree.getRightChild())
 
 
 if __name__ == '__main__':
     r = BinaryTree("a")
     r.insertLeft("d")
-    r.insertLeft("b")
+    # r.insertLeft("b")
     r.insertRight("c")
-    r.getRightChild().setRootVal("hello")
+    # r.getRightChild().setRootVal("hello")
     # print(r.getRightChild().key)
     # print(r.getLeftChild().key)
     # print(r.getLeftChild().getLeftChild().key)
-    print(postorder(r))
+    print(postorder(r, 0))
