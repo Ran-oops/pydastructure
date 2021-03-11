@@ -232,9 +232,9 @@ class TreeNode:
         """
         找后继节点有三种情况：
         1.如果节点有右子节点-->后继节点就是右子树中最小的节点
-        2. 无右子节点：
-            1. 本身是左子节点，-->后继节点就是父节点
-            2. 本身是右子节点，-->后继节点是除其本身外父节点的后继节点
+        # 2. 无右子节点：
+        #     1. 本身是左子节点，-->后继节点就是父节点
+        #     2. 本身是右子节点，-->后继节点是除其本身外父节点的后继节点
         """
         succ = None
         if self.hasRightChild():
@@ -303,8 +303,8 @@ if __name__ == '__main__':
     mytree[8.2] = "point"
 
 
-    # for key in mytree:
-    #     print(key, mytree[key], )
+    for key in mytree:
+        print(key)
 
     # print(mytree.root.key) # 9
     # print(mytree.root.leftchild.key) # 6
@@ -313,7 +313,7 @@ if __name__ == '__main__':
     # print(mytree.root.leftchild.rightchild.leftchild.key)
     # print(mytree.root.leftchild.rightchild.rightchild.key)
     # del mytree[8]
-    print(mytree.height())
+    # print(mytree.height())
 
 
 

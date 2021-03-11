@@ -66,6 +66,9 @@ class BinHeap:
         return retval
 
     def buildheap(self,alist):
+        # 从最后结点的父节点开始下沉,因为叶节点是无需下沉的
+        # 能够将总代价控制在O(n)
+        # 用insert(key)方法,将无序表中的数据项逐个insert到堆中,但这么做的总代价是nO(logn)
         i = len(alist) // 2
         self.currentSize = len(alist)
         self.heapList = [0] + alist[:]
