@@ -220,10 +220,13 @@ class TreeNode:
         for...in...来调用自身的__iter__方法
         """
         if self:
+            # 尽可能地找左孩子
             if self.hasLeftChild():
                 for elem in self.leftchild:
+                    # print("elem", elem, type(elem))
                     yield elem
             yield self.key
+            # 从返回的这个左孩子开始研究它的右孩子, 找右孩子的左孩子
             if self.hasRightChild():
                 for elem in self.rightchild:
                     yield elem
@@ -239,16 +242,16 @@ class TreeNode:
         succ = None
         if self.hasRightChild():
             succ = self.rightchild.findMin()
-        else:
-            print("11111111111")
-            if self.parent:
-                if self.isLeftChild():
-                    succ = self.parent
-                else:
-                    self.parent.rightchild = None
-                    succ = self.parent.findsuccessor()
-                    self.parent.rightchild = self
-        print("=========",succ.key)
+        # else:
+        #     print("11111111111")
+        #     if self.parent:
+        #         if self.isLeftChild():
+        #             succ = self.parent
+        #         else:
+        #             self.parent.rightchild = None
+        #             succ = self.parent.findsuccessor()
+        #             self.parent.rightchild = self
+        # print("=========",succ.key)
         return succ
 
     def findMin(self):
@@ -302,9 +305,8 @@ if __name__ == '__main__':
     mytree[7] = "five"
     mytree[8.2] = "point"
 
-
     for key in mytree:
-        print(key)
+        print(key, type(key))
 
     # print(mytree.root.key) # 9
     # print(mytree.root.leftchild.key) # 6

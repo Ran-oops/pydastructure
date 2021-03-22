@@ -99,6 +99,7 @@ def evaluate(parseTree):
     res1 = None
     res2 = None
     if parseTree:
+
         res1 = evaluate(parseTree.getLeftChild())
         res2 = evaluate(parseTree.getRightChild())
 

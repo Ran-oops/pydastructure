@@ -120,6 +120,7 @@ if __name__ == '__main__':
         g.addVertex(i)
     print(g.vertList)
     g.addEdge(0, 1, 5)
+    # g.addEdge(1, 0, 5)
     g.addEdge(1, 2, 4)
     g.addEdge(2, 3, 9)
     g.addEdge(3, 4, 7)

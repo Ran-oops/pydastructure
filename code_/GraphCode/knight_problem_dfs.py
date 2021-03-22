@@ -28,6 +28,7 @@ def legalCoord(x, bdsize):
 def knightGraph(bdsize):
     ktGrapth = Graph()
     # 遍历每个格子
+    # 将整个棋盘遍历了一遍
     for row in range(bdsize):
         for col in range(bdsize):
             nodeId = posToNodeId(row, col, bdsize)
@@ -80,8 +81,8 @@ def knightTour(n, path, u, limit):
     path.append(u)
     if n < limit:
         # 对所有合法移动逐一深入
-        # nbrList = list(u.getConnections())
-        nbrList = list(orderbyAvail(u))
+        nbrList = list(u.getConnections())
+        # nbrList = list(orderbyAvail(u))
         i = 0
         done = False
         while i < len(nbrList) and not done:
