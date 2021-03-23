@@ -2,6 +2,11 @@
 
 from pythonds.graphs import Graph
 # 通用深度优先搜索
+"""
+一般的深度优先搜索目标是在图上进行尽量深的搜索,连接尽量多的顶点,
+必要时候进行分支(创建了树).
+有时候深度优先搜索会创建多棵树,称为"深度优先森林"
+"""
 
 class DFSGraph(Graph):
     """
@@ -37,7 +42,7 @@ class DFSGraph(Graph):
         startVertex.setColor('black')
         self.time += 1
         startVertex.setFinish(self.time)
-        print(startVertex.getId(), end=" ")
+        # print(startVertex.getId(), end=" ")
 
 
 if __name__ == '__main__':
@@ -99,7 +104,7 @@ if __name__ == '__main__':
     g.dfs()
     lists = []
     for node in g:
-        print(node.getId(), node.getFinish(), node.getDiscovery())
+        print(node.getId(), node.getDiscovery(), node.getFinish())
         lists.append(node)
 
     # 根据结束时间,将定点按照递减顺序存储在列表中

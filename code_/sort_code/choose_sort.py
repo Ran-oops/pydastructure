@@ -10,6 +10,7 @@ def choose_sort(alist):
     n = len(alist)
     # min = 0
     for j in range(n-1):
+        # 这个j是为了指定是第几个位置
         minu = j
         for i in range(j+1, n):
             if alist[i] < alist[minu]:

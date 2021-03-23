@@ -248,42 +248,241 @@ class BinHeap:
 #     def spliceOut(self):
 #         if self.isLeaf():
 
+from pythonds.graphs import Graph
 
 
+# class DFSGraph(Graph):
+#     def __init__(self):
+#         super().__init__()
+#         self.time = 0
+#
+#     def dfs(self):
+#         for aVertex in self:
+#             aVertex.setColor('white')
+#             aVertex.setPred(-1)
+#         for aVertex in self:
+#             if aVertex.getColor() == 'white':
+#                 self.dfsvisit(aVertex)
+#
+#     def dfsvisit(self, startVertex):
+#         startVertex.setColor('gray')
+#         self.time += 1
+#         startVertex.setDiscovery(self.time)
+#         for nextVertex in startVertex.getConnections():
+#             if nextVertex.getColor() == 'white':
+#                 nextVertex.setPred(startVertex)
+#                 self.dfsvisit(nextVertex)
+#         startVertex.setColor('black')
+#         self.time += 1
+#         startVertex.setFinish(self.time)
+#         print(startVertex.getId(), end= ' ')
+
+# class DFSGraph(Graph):
+#     def __init__(self):
+#         super().__init__()
+#         self.time = 0
+#
+#     def dfs(self):
+#         for aVertex in self:
+#             aVertex.setColor('white')
+#             aVertex.setPred(-1)
+#         for aVertex in self:
+#             if aVertex.getColor() == 'white':
+#                 self.dfsvisit(aVertex)
+#
+#     def dfsvisit(self, startVertex):
+#         startVertex.setColor('gray')
+#         self.time += 1
+#         startVertex.setDiscovery(self.time)
+#         for nextVertex in startVertex.getConnections():
+#             if nextVertex.getColor() == 'white':
+#                 nextVertex.setPred(startVertex)
+#                 self.dfsvisit(nextVertex)
+#         startVertex.setColor('black')
+#         self.time += 1
+#         startVertex.setFinish(self.time)
 
 
+class DFSGraph(Graph):
+    def __init__(self):
+        super().__init__()
+        self.time = 0
+
+    def dfs(self):
+        for aVertex in self:
+            aVertex.setColor('white')
+            aVertex.setPred(-1)
+        for aVertex in self:
+            if aVertex.getColor() == 'white':
+                self.dfsvisit(aVertex)
+
+    def dfsvisit(self, startVertex):
+        startVertex.setColor('gray')
+        self.time += 1
+        startVertex.setDiscovery(self.time)
+        for nextVertex in startVertex.getConnections():
+            if nextVertex.getColor() == 'white':
+                nextVertex.setPred(startVertex)
+                self.dfsvisit(nextVertex)
+        startVertex.setColor('black')
+        self.time += 1
+        startVertex.setFinish(self.time)
 
 
+def binary_search(alist, item):
+    n = len(alist)
+    if n>0:
+        mid = n // 2
+        if alist[mid] == item:
+            return True
+        if item < alist[mid]:
+            return binary_search(alist[:mid], item)
+        else:
+            return binary_search(alist[mid+1:], item)
+    return False
 
 
+def binary_search(alist, item):
+    n = len(alist)
+    if n > 0:
+        mid = n // 2
+        if item == alist[mid]:
+            return True
+        elif item < alist[mid]:
+            binary_search(alist[:mid], item)
+        else:
+            binary_search(alist[mid+1:], item)
+    return False
 
 
+def binary_search(alist, item):
+    n = len(alist)
+    if n > 0:
+        mid = n // 2
+        if item == alist[mid]:
+            return True
+        elif item < alist[mid]:
+            binary_search(alist[:mid], item)
+        else:
+            binary_search(alist[mid+1:], item)
+    return False
 
 
+def bubble_sort(alist):
+    n = len(alist)
+    count = 0
+    for j in range(n-1):
+        for i in range(0, n-1-j):
+            if alist[i]> alist[i+1]:
+                alist[i], alist[i+1] = alist[i+1], alist[i]
+                count += 1
+        if count == 0:
+            return
+
+# def bubble_sort(alist):
+#     n = len(alist)
+#     count = 0
+#     for j in range(n-1):
+#         for i in range(0, n-1-j):
+#             if alist[i] > alist[i+1]:
+#                 alist[i], alist[i+1] = alist[i+1], alist[i]
+#                 count += 1
+#         if count == 0:
+#             return
+
+# def choose_sort(alist):
+#     n = len(alist)
+#     for j in range(n-1):
+#         minu = j
+#         for i in range(j+1, n):
+#             if alist[i] < alist[minu]:
+#                 alist[minu], alist[j] = alist[j], alist[minu]
 
 
+def bubble_sort(alist):
+    n = len(alist)
+    count = 0
+    for j in range(n-1):
+        for i in range(n-1-j):
+            if alist[i] > alist[i+1]:
+                alist[i], alist[i+1] = alist[i+1], alist[i]
+                count += 1
+        if count == 0:
+            return
 
 
+def choose_sort(alist):
+    n = len(alist)
+    for j in range(n-1):
+        minu = j
+        for i in range(j+1, n):
+            if alist[i] < alist[minu]:
+                minu = i
+        alist[minu], alist[j] = alist[j], alist[minu]
 
 
+def choose_sort(alist):
+    n = len(alist)
+    for j in range(n-1):
+        minu = j
+        for i in range(j+1, n):
+            if alist[i] < alist[minu]:
+                minu = i
+        alist[minu], alist[j] = alist[j], alist[minu]
 
 
+def insert_sort(alist):
+    n = len(alist)
+    for i in range(1, n):
+        j = i
+        key = alist[i]
+        while j > 0 and key < alist[j-1]:
+            alist[j] = alist[j-1]
+            j -= 1
+        alist[j] = key
 
 
+def insert_sort(alist):
+    n = len(alist)
+    for i in range(1, n):
+        j = i
+        key = alist[i]
+        while j > 0 and key < alist[j-1]:
+            alist[j] = alist[j-1]
+            j -= 1
+        alist[j] = key
 
 
+def insert_sort(alist):
+    n = len(alist)
+    for i in range(1, n):
+        j = i
+        key = alist[j]
+        while j > 0 and key < alist[j]:
+            alist[j] = alist[j-1]
+            j -= 1
+        alist[j] = key
 
 
-
-
-
-
-
-
-
-
-
-
+def merge_sort(alist):
+    n = len(alist)
+    if n <= 1:
+        return alist
+    mid = n // 2
+    left_li = merge_sort(alist[:mid])
+    right_li = merge_sort(alist[mid:])
+    left_pointer, right_pointer = 0, 0
+    result = []
+    while left_pointer < len(left_li) and right_pointer < len(right_li):
+        if left_li[left_pointer] < right_li[right_pointer]:
+            result.append(left_li[left_pointer])
+            left_pointer += 1
+        else:
+            result.append(right_li[right_pointer])
+            right_pointer += 1
+    result += left_li[left_pointer:]
+    result += right_li[right_pointer:]
+    return result
 
 
 
